@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { Text, TextInput, StyleSheet } from 'react-native';
+
+import InputContainer from './InputContainer';
 
 const Input = ({ title, placeholder, onChangeHandler, defaultValue }) => {
   const [showTitle, setShowTitle] = useState(false);
   return (
-    <View style={styles.container}>
+    <InputContainer>
       {showTitle && <Text style={styles.title}>{title}</Text>}
       <TextInput
         style={styles.textInput}
@@ -13,7 +15,7 @@ const Input = ({ title, placeholder, onChangeHandler, defaultValue }) => {
         onChangeText={(text) => onChangeHandler(text)}
         keyboardType={'numeric'}
       />
-    </View>
+    </InputContainer>
   );
 };
 
