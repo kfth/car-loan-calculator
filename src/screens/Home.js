@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 
 import Input from '../components/Input';
+import DatePicker from '../components/DatePicker';
 
 const Home = (props) => {
   const [vehiclePrice, setVehiclePrice] = useState('');
   const [deposit, setDeposit] = useState('');
+  const [deliveryDate, setDeliveryDate] = useState();
 
   return (
     <View>
@@ -21,6 +23,7 @@ const Home = (props) => {
         onChangeHandler={setDeposit}
         defaultValue={deposit}
       />
+      <DatePicker setDate={setDeliveryDate} date={deliveryDate} />
       <Button
         onPress={() => {
           console.log(vehiclePrice, deposit);
