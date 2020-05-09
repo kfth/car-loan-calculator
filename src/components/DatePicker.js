@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import InputContainer from './InputContainer';
 
-const DatePicker = ({ setDate, date }) => {
+const DatePicker = ({ setDate, date, title }) => {
   const [showTitle, setShowTitle] = useState(false);
 
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -24,7 +24,7 @@ const DatePicker = ({ setDate, date }) => {
       }}
     >
       <InputContainer>
-        {showTitle && <Text style={styles.title}>Select Delivery Date</Text>}
+        {showTitle && <Text style={styles.title}>{title}</Text>}
         <Text style={styles.dateText}>
           {date ? moment(date).format('DD-MM-YYYY') : 'Select Delivery Date'}
         </Text>
