@@ -14,6 +14,7 @@ const Input = ({ title, placeholder, onChangeHandler, defaultValue }) => {
         onFocus={() => setShowTitle(true)}
         onChangeText={(text) => onChangeHandler(text)}
         keyboardType={'numeric'}
+        value={defaultValue}
       />
     </InputContainer>
   );
