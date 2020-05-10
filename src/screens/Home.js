@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View } from 'react-native';
 
 import Input from '../components/Input';
 import DatePicker from '../components/DatePicker';
 import PickerBox from '../components/PickerBox';
+import Button from '../components/Button';
 
 const Home = (props) => {
   const [vehiclePrice, setVehiclePrice] = useState('');
@@ -32,10 +33,10 @@ const Home = (props) => {
         title={'Finance Options'}
       />
       <Button
-        onPress={() => {
+        onPressHandler={() => {
           console.log(vehiclePrice, deposit, deliveryDate, financeOption);
         }}
-        title='Payment Schedule'
+        title='Calculate Payments'
       />
     </View>
   );
