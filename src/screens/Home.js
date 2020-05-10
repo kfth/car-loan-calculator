@@ -10,7 +10,7 @@ const Home = (props) => {
   const [vehiclePrice, setVehiclePrice] = useState('');
   const [deposit, setDeposit] = useState('');
   const [deliveryDate, setDeliveryDate] = useState('');
-  const [financeOption, setFinanceOption] = useState('');
+  const [financeOption, setFinanceOption] = useState(0);
 
   const calculatePayments = () => {
     const vehiclePriceIsValid = !!vehiclePrice && !isNaN(vehiclePrice);
