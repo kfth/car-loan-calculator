@@ -5,6 +5,7 @@ const Payment = (props) => {
   return (
     <View>
       <Text>Payment</Text>
+      <Text>{props.route.params}</Text>
     </View>
   );
 };

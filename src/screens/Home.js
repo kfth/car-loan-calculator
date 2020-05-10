@@ -6,6 +6,8 @@ import DatePicker from '../components/DatePicker';
 import PickerBox from '../components/PickerBox';
 import Button from '../components/Button';
 
+import getQuote from '../../utils/getQuote';
+
 const Home = (props) => {
   const [vehiclePrice, setVehiclePrice] = useState('');
   const [deposit, setDeposit] = useState('');
@@ -26,7 +28,8 @@ const Home = (props) => {
       deliveryDateIsValid &&
       financeOptionIsValid
     ) {
-      // calculate payments
+      const details = getQuote(vehiclePrice, deposit, deliveryDate, financeOption);
+      props.navigation.navigate('Payment', JSON.stringify(details));
     } else {
       let alertMessage = '';
       alertMessage = vehiclePriceIsValid
