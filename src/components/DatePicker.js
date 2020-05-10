@@ -15,6 +15,8 @@ const DatePicker = ({ setDate, date, title }) => {
     setShowDatePicker(Platform.OS === 'ios');
     setDate(currentDate);
   };
+  const tomorrow = new Date();
+  tomorrow.setDate(new Date().getDate() + 1);
 
   return (
     <TouchableHighlight
@@ -30,8 +32,8 @@ const DatePicker = ({ setDate, date, title }) => {
         </Text>
         {showDatePicker && (
           <DateTimePicker
-            timeZoneOffsetInMinutes={0}
-            value={new Date()}
+            value={date || tomorrow}
+            minimumDate={tomorrow}
             mode='date'
             is24Hour={true}
             display='default'
