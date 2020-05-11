@@ -40,8 +40,6 @@ const Cars = (props) => {
           isError: true,
         });
       });
-
-    console.log('>>total:', cars.totalCount, '>>> carlist', cars.carList.length);
   }, [monthlyPayment]);
 
   let content;
@@ -73,6 +71,7 @@ const Cars = (props) => {
           data={cars.carList}
           keyExtractor={(item) => item.stockReference}
           renderItem={({ item, index }) => {
+            console.log(item);
             return (
               <ImageListItem
                 title={`${item.make} ${item.model}`}
@@ -89,6 +88,11 @@ const Cars = (props) => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <Text
+          style={styles.headerText}
+        >{`Showing ${cars.carList.length} of ${cars.totalCount} Cars`}</Text>
+      </View>
       <View style={styles.listContainer}>{content}</View>
       <View style={styles.footer}>
         <Button
@@ -105,6 +109,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     position: 'relative',
+  },
+  header: {
+    backgroundColor: '#99CB38',
+    alignContent: 'center',
+  },
+  headerText: {
+    textAlign: 'center',
+    color: '#7030a0',
   },
   listContainer: {
     flex: 0.88,

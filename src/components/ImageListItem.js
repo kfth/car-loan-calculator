@@ -13,11 +13,12 @@ const ImageListItem = ({ title, variant, img, monthlyPayment }) => {
         position: 'relative',
         padding: 0,
         borderRadius: 10,
+        borderWidth: 3,
       }}
     >
       <View style={styles.header}>
-        <Text style={[styles.bigText, styles.bold, styles.primaryColor]}>{title}</Text>
-        <Text style={[styles.smallText, styles.bold, styles.primaryColor]}>{variant}</Text>
+        <Text style={[styles.bigText, styles.bold, styles.secondaryColor]}>{title}</Text>
+        <Text style={[styles.smallText, styles.bold, styles.secondaryColor]}>{variant}</Text>
       </View>
       <View style={styles.imageContainer}>
         <Image style={styles.image} source={imgSource} />
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     zIndex: 1,
-    backgroundColor: 'rgba(153, 203, 56, 0.7)',
+    backgroundColor: 'rgba(112, 48, 160, 0.8)',
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     alignItems: 'center',
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     zIndex: 2,
-    backgroundColor: 'rgba(112, 48, 160, 0.7)',
+    backgroundColor: 'rgba(112, 48, 160, 0.8)',
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     alignItems: 'center',
