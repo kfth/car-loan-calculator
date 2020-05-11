@@ -42,8 +42,17 @@ const Payment = (props) => {
         />
       </View>
       <View style={styles.footer}>
-        <Button title='< Back' style={styles.backButton} textColor='#876d83' />
-        <Button title='Show Cars >' style={styles.carsButton} />
+        <Button
+          title='< Back'
+          style={styles.backButton}
+          textColor='#876d83'
+          onPress={() => props.navigation.goBack()}
+        />
+        <Button
+          title='Show Cars >'
+          style={styles.carsButton}
+          onPress={() => props.navigation.navigate('Cars')}
+        />
       </View>
     </View>
   );
