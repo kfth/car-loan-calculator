@@ -2,8 +2,10 @@ import React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
 import Card from './InputContainer';
+const noImage = require('../images/noImage.png');
 
 const ImageListItem = ({ title, variant, img, monthlyPayment }) => {
+  const imgSource = img ? { uri: img } : noImage;
   return (
     <Card
       style={{
@@ -18,12 +20,7 @@ const ImageListItem = ({ title, variant, img, monthlyPayment }) => {
         <Text style={[styles.smallText, styles.bold, styles.primaryColor]}>{variant}</Text>
       </View>
       <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={{
-            uri: img,
-          }}
-        />
+        <Image style={styles.image} source={imgSource} />
       </View>
       <View style={styles.footer}>
         <Text style={[styles.xLText, styles.bold, styles.secondaryColor]}>£{monthlyPayment}</Text>

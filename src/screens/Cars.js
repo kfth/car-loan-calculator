@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, FlatList } from 'react-native';
+import axios from 'axios';
 
 import Button from '../components/Button';
 import Loading from '../components/Loading';
@@ -16,6 +17,32 @@ const Cars = (props) => {
     totalCount: 0,
     carList: [],
   });
+
+  useEffect(() => {
+    setCars({ ...cars, isLoading: true });
+    axios
+      .get(URI)
+      .then(({ data }) => {
+        console.log('total cars:::', data.count);
+        setCars({
+          ...cars,
+          carList: data.searchResults.slice(0, 6),
+          totalCount: data.count,
+          isLoading: false,
+          isError: false,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        setCars({
+          ...cars,
+          isLoading: false,
+          isError: true,
+        });
+      });
+
+    console.log('>>total:', cars.totalCount, '>>> carlist', cars.carList.length);
+  }, [monthlyPayment]);
 
   let content;
   switch (true) {
@@ -42,11 +69,19 @@ const Cars = (props) => {
       break;
     default:
       content = (
-        <ImageListItem
-          title='Ford Fiesta'
-          variant='1.25 82 Zetec 3dr'
-          img='https://vcache.arnoldclark.com/imageserver/AFRYNBH4E1-VUM3/350/f'
-          monthlyPayment={120}
+        <FlatList
+          data={cars.carList}
+          keyExtractor={(item) => item.stockReference}
+          renderItem={({ item, index }) => {
+            return (
+              <ImageListItem
+                title={`${item.make} ${item.model}`}
+                variant={item.variant}
+                img={item.thumbnails[0]}
+                monthlyPayment={item.salesInfo.pricing.monthlyPayment}
+              />
+            );
+          }}
         />
       );
       break;
@@ -56,7 +91,11 @@ const Cars = (props) => {
     <View style={styles.container}>
       <View style={styles.listContainer}>{content}</View>
       <View style={styles.footer}>
-        <Button title="Let's Calculate Again" style={styles.button} />
+        <Button
+          title="Let's Calculate Again"
+          style={styles.button}
+          onPress={() => props.navigation.navigate('Home')}
+        />
       </View>
     </View>
   );
