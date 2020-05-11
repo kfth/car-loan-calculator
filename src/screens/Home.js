@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Alert, Image, StyleSheet } from 'react-native';
+import { View, Alert, Image, StyleSheet, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 import Input from '../components/Input';
 import DatePicker from '../components/DatePicker';
@@ -56,35 +56,41 @@ const Home = (props) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.logo}>
-        <Image source={require('../images/logo.webp')} />
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}
+    >
+      <View style={styles.container}>
+        <View style={styles.logo}>
+          <Image source={require('../images/logo.webp')} />
+        </View>
+        <Input
+          title='Vehicle Price'
+          placeholder='Enter Vehicle Price'
+          onChangeHandler={setVehiclePrice}
+          defaultValue={vehiclePrice}
+        />
+        <Input
+          title='Deposit'
+          placeholder='Enter deposit amount'
+          onChangeHandler={setDeposit}
+          defaultValue={deposit}
+        />
+        <DatePicker setDate={setDeliveryDate} date={deliveryDate} title={'Delivery Date'} />
+        <PickerBox
+          onChangeHandler={setFinanceOption}
+          value={financeOption}
+          title={'Finance Options'}
+        />
+        <Button
+          onPressHandler={calculatePayments}
+          title='Calculate Payments'
+          accessibilityLabel='Calculate Payments and show payment Schedule'
+          accessibilityHint='Navigates to the Payment Schedule screen'
+        />
       </View>
-      <Input
-        title='Vehicle Price'
-        placeholder='Enter Vehicle Price'
-        onChangeHandler={setVehiclePrice}
-        defaultValue={vehiclePrice}
-      />
-      <Input
-        title='Deposit'
-        placeholder='Enter deposit amount'
-        onChangeHandler={setDeposit}
-        defaultValue={deposit}
-      />
-      <DatePicker setDate={setDeliveryDate} date={deliveryDate} title={'Delivery Date'} />
-      <PickerBox
-        onChangeHandler={setFinanceOption}
-        value={financeOption}
-        title={'Finance Options'}
-      />
-      <Button
-        onPressHandler={calculatePayments}
-        title='Calculate Payments'
-        accessibilityLabel='Calculate Payments and show payment Schedule'
-        accessibilityHint='Navigates to the Payment Schedule screen'
-      />
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 
