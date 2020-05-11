@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
 import Card from '../components/InputContainer';
 import Button from '../components/Button';
+import ListItem from '../components/ListItem';
 
 const Payment = (props) => {
   const { deposit, totalLoan, months, payments } = JSON.parse(props.route.params);
@@ -23,7 +24,23 @@ const Payment = (props) => {
           <Text>{months} months</Text>
         </View>
       </Card>
-      <View style={styles.listContainer}></View>
+      <View style={styles.listContainer}>
+        <FlatList
+          data={payments}
+          renderItem={({ item, index }) => {
+            const { amount, key, note } = item;
+            console.log(index);
+            return (
+              <ListItem
+                amount={amount}
+                date={key}
+                note={note}
+                backgroundColor={index % 2 ? '#cbbbc6' : '#cacfbf'}
+              ></ListItem>
+            );
+          }}
+        />
+      </View>
       <View style={styles.footer}>
         <Button title='< Back' style={styles.backButton} textColor='#876d83' />
         <Button title='Show Cars >' style={styles.carsButton} />
