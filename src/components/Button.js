@@ -1,10 +1,10 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const CustomButton = ({ title, onPressHandler, style, ...props }) => {
+const CustomButton = ({ title, onPressHandler, textColor, textSize, style, ...props }) => {
   return (
     <TouchableOpacity style={{ ...styles.button, ...style }} onPress={onPressHandler} {...props}>
-      <Text style={styles.text}>{title}</Text>
+      <Text style={[{ fontSize: textSize || 20 }, { color: textColor || '#7030a0' }]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -18,10 +18,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#99CB38',
-  },
-  text: {
-    color: '#7030a0',
-    fontSize: 20,
   },
 });
 

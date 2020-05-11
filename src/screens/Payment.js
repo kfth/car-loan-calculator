@@ -25,7 +25,7 @@ const Payment = (props) => {
       </Card>
       <View style={styles.listContainer}></View>
       <View style={styles.footer}>
-        <Button title='< Back' style={styles.backButton} />
+        <Button title='< Back' style={styles.backButton} textColor='#876d83' />
         <Button title='Show Cars >' style={styles.carsButton} />
       </View>
     </View>
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   backButton: {
-    color: '#99CB38',
     backgroundColor: '#7030a0',
     borderRadius: 0,
     flexGrow: 1,
