@@ -49,7 +49,7 @@ const Home = (props) => {
       Alert.alert(
         'Invalid Input(s)',
         alertMessage,
-        [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+        [{ text: 'OK', onPress: () => console.log('OK') }],
         { cancelable: false },
       );
     }

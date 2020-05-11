@@ -23,7 +23,6 @@ const Cars = (props) => {
     axios
       .get(URI)
       .then(({ data }) => {
-        console.log('total cars:::', data.count);
         setCars({
           ...cars,
           carList: data.searchResults.slice(0, 6),
@@ -71,7 +70,6 @@ const Cars = (props) => {
           data={cars.carList}
           keyExtractor={(item) => item.stockReference}
           renderItem={({ item, index }) => {
-            console.log(item);
             return (
               <ImageListItem
                 title={`${item.make} ${item.model}`}
