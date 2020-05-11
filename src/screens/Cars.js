@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
 import Button from '../components/Button';
+import Loading from '../components/Loading';
 
 const Cars = (props) => {
   const { monthlyPayment } = JSON.parse(props.route.params);
@@ -17,7 +18,7 @@ const Cars = (props) => {
   let content;
   switch (true) {
     case cars.isLoading:
-      content = <Text>Loding...</Text>;
+      content = <Loading size='large' color='#99CB38' />;
       break;
     case cars.isError:
       content = <Text>Error</Text>;
