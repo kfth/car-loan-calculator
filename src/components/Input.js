@@ -30,13 +30,14 @@ const styles = StyleSheet.create({
     padding: 3,
   },
   title: {
-    fontSize: 11,
+    fontSize: 12,
     color: '#7030a0',
   },
   textInput: {
     color: '#7030a0',
     fontWeight: 'bold',
     height: 40,
+    fontSize: 20,
   },
 });
 

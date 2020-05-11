@@ -11,6 +11,7 @@ const CustomButton = ({ title, onPressHandler, textColor, textSize, style, ...pr
 
 const styles = StyleSheet.create({
   button: {
+    fontWeight: 'bold',
     margin: 5,
     padding: 10,
     borderRadius: 5,

@@ -46,12 +46,13 @@ const DatePicker = ({ setDate, date, title }) => {
 };
 const styles = StyleSheet.create({
   title: {
-    fontSize: 11,
+    fontSize: 12,
     color: '#7030a0',
   },
   dateText: {
     color: '#7030a0',
     fontWeight: 'bold',
+    fontSize: 20,
     height: 40,
     marginTop: 8,
   },

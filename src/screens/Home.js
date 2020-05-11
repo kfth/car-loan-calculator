@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Alert } from 'react-native';
+import { View, Alert, Image, StyleSheet } from 'react-native';
 
 import Input from '../components/Input';
 import DatePicker from '../components/DatePicker';
@@ -56,7 +56,10 @@ const Home = (props) => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
+      <View style={styles.logo}>
+        <Image source={require('../images/logo.webp')} />
+      </View>
       <Input
         title='Vehicle Price'
         placeholder='Enter Vehicle Price'
@@ -79,5 +82,16 @@ const Home = (props) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingTop: 10,
+  },
+  logo: {
+    alignItems: 'center',
+  },
+});
 
 export default Home;

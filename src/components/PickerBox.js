@@ -28,11 +28,12 @@ const PickerBox = ({ title, onChangeHandler, value }) => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 11,
+    fontSize: 12,
     color: '#7030a0',
   },
   textInput: {
     color: '#7030a0',
+    fontSize: 20,
     fontWeight: 'bold',
     height: 40,
   },
