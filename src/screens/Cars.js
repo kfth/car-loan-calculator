@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from 'react-native';
 
 import Button from '../components/Button';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 
 const Cars = (props) => {
   const { monthlyPayment } = JSON.parse(props.route.params);
@@ -21,10 +22,22 @@ const Cars = (props) => {
       content = <Loading size='large' color='#99CB38' />;
       break;
     case cars.isError:
-      content = <Text>Error</Text>;
+      content = (
+        <Error
+          message='Something went wrong'
+          advice='Please try again'
+          imgSource={require('../images/error.png')}
+        />
+      );
       break;
     case cars.carList.length === 0:
-      content = <Text>No Car</Text>;
+      content = (
+        <Error
+          message="There isn't any available car"
+          advice='Perhaps, you should consider increasing monthly payment'
+          imgSource={require('../images/noCar.png')}
+        />
+      );
       break;
     default:
       content = <Text>Car list</Text>;
