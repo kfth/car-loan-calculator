@@ -1,13 +1,27 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import Card from '../components/InputContainer';
 
 const Payment = (props) => {
-  const { deposit, loan, months, payments } = JSON.parse(props.route.params);
+  const { deposit, totalLoan, months, payments } = JSON.parse(props.route.params);
   return (
     <View style={styles.container}>
-      <Card style={styles.header}></Card>
+      <Card style={styles.header}>
+        <View style={styles.tileContainer}>
+          <View style={styles.tile}>
+            <Text>Deposit </Text>
+            <Text style={styles.tileNumber}>£{deposit}</Text>
+          </View>
+          <View style={styles.tile}>
+            <Text>Total Loan (inc.all fees)</Text>
+            <Text style={styles.tileNumber}>£{totalLoan}</Text>
+          </View>
+        </View>
+        <View style={styles.tile}>
+          <Text>{months} months</Text>
+        </View>
+      </Card>
       <View style={styles.listContainer}></View>
       <View style={styles.footer}></View>
     </View>
@@ -24,11 +38,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#99CB38',
     borderWidth: 0,
   },
+  tileContainer: { flexDirection: 'row' },
   listContainer: {
     flex: 0.88,
     paddingBottom: 60,
     marginBottom: -60,
   },
+  tile: { flexGrow: 1, alignItems: 'center' },
+  tileNumber: { color: '#7030a0', fontWeight: 'bold', fontSize: 24 },
   footer: {
     flex: 0.12,
     flexDirection: 'row',
