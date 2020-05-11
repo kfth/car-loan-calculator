@@ -29,7 +29,6 @@ const Payment = (props) => {
           data={payments}
           renderItem={({ item, index }) => {
             const { amount, key, note } = item;
-            console.log(index);
             return (
               <ListItem
                 amount={amount}
@@ -51,7 +50,12 @@ const Payment = (props) => {
         <Button
           title='Show Cars >'
           style={styles.carsButton}
-          onPress={() => props.navigation.navigate('Cars')}
+          onPress={() =>
+            props.navigation.navigate(
+              'Cars',
+              JSON.stringify({ monthlyPayment: payments[1].amount }),
+            )
+          }
         />
       </View>
     </View>
