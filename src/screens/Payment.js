@@ -46,6 +46,8 @@ const Payment = (props) => {
           style={styles.backButton}
           textColor='#876d83'
           onPress={() => props.navigation.goBack()}
+          accessibilityLabel='Go to Home Screen'
+          accessibilityHint='Navigates back to the Home screen'
         />
         <Button
           title='Show Cars >'
@@ -56,6 +58,8 @@ const Payment = (props) => {
               JSON.stringify({ monthlyPayment: payments[1].amount }),
             )
           }
+          accessibilityLabel='Show available Cars'
+          accessibilityHint='Navigates to the Cars screen'
         />
       </View>
     </View>

@@ -99,6 +99,8 @@ const Cars = (props) => {
           title="Let's Calculate Again"
           style={styles.button}
           onPress={() => props.navigation.navigate('Home')}
+          accessibilityLabel='Go to Home Screen'
+          accessibilityHint='Navigates to the Home screen'
         />
       </View>
     </View>

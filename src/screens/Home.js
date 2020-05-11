@@ -78,7 +78,12 @@ const Home = (props) => {
         value={financeOption}
         title={'Finance Options'}
       />
-      <Button onPressHandler={calculatePayments} title='Calculate Payments' />
+      <Button
+        onPressHandler={calculatePayments}
+        title='Calculate Payments'
+        accessibilityLabel='Calculate Payments and show payment Schedule'
+        accessibilityHint='Navigates to the Payment Schedule screen'
+      />
     </View>
   );
 };
