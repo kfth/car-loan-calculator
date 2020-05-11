@@ -74,16 +74,13 @@ const styles = StyleSheet.create({
   },
   tileContainer: { flexDirection: 'row' },
   listContainer: {
-    flex: 0.88,
-    paddingBottom: 60,
-    marginBottom: -60,
+    flex: 1,
   },
   tile: { flexGrow: 1, alignItems: 'center' },
   tileNumber: { color: '#7030a0', fontWeight: 'bold', fontSize: 24 },
   footer: {
-    flex: 0.12,
     flexDirection: 'row',
-    bottom: 0,
+    margin: 0,
     padding: 0,
   },
   backButton: {
