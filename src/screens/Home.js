@@ -16,7 +16,7 @@ const Home = (props) => {
 
   const calculatePayments = () => {
     const vehiclePriceIsValid = !!vehiclePrice && !isNaN(vehiclePrice);
-    const depositIsValid = !!deposit && !isNaN(deposit);
+    const depositIsValid = !!deposit && !isNaN(deposit) && deposit < vehiclePrice;
     const depositIsSufficient = deposit >= vehiclePrice * 0.15;
     const deliveryDateIsValid = !!deliveryDate;
     const financeOptionIsValid = financeOption > 0;
