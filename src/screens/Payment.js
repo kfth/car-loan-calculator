@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import Card from '../components/InputContainer';
+import Button from '../components/Button';
 
 const Payment = (props) => {
   const { deposit, totalLoan, months, payments } = JSON.parse(props.route.params);
@@ -23,7 +24,10 @@ const Payment = (props) => {
         </View>
       </Card>
       <View style={styles.listContainer}></View>
-      <View style={styles.footer}></View>
+      <View style={styles.footer}>
+        <Button title='< Back' style={styles.backButton} />
+        <Button title='Show Cars >' style={styles.carsButton} />
+      </View>
     </View>
   );
 };
@@ -49,15 +53,18 @@ const styles = StyleSheet.create({
   footer: {
     flex: 0.12,
     flexDirection: 'row',
-    backgroundColor: '#99CB38',
     bottom: 0,
     padding: 0,
   },
   backButton: {
+    color: '#99CB38',
+    backgroundColor: '#7030a0',
+    borderRadius: 0,
     flexGrow: 1,
     margin: 0,
   },
   carsButton: {
+    borderRadius: 0,
     flexGrow: 3,
     margin: 0,
   },
