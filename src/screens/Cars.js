@@ -4,6 +4,7 @@ import { View, StyleSheet, Text } from 'react-native';
 import Button from '../components/Button';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
+import ImageListItem from '../components/ImageListItem';
 
 const Cars = (props) => {
   const { monthlyPayment } = JSON.parse(props.route.params);
@@ -40,7 +41,14 @@ const Cars = (props) => {
       );
       break;
     default:
-      content = <Text>Car list</Text>;
+      content = (
+        <ImageListItem
+          title='Ford Fiesta'
+          variant='1.25 82 Zetec 3dr'
+          img='https://vcache.arnoldclark.com/imageserver/AFRYNBH4E1-VUM3/350/f'
+          monthlyPayment={120}
+        />
+      );
       break;
   }
 
