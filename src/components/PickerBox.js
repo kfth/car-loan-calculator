@@ -20,7 +20,7 @@ const PickerBox = ({ title, onChangeHandler, value }) => {
         <Picker.Item label='Select Finance Option' value={0} />
         <Picker.Item label='1 Year' value={12} />
         <Picker.Item label='2 Year' value={24} />
-        <Picker.Item label='3 Year' value={26} />
+        <Picker.Item label='3 Year' value={36} />
       </Picker>
     </InputContainer>
   );
